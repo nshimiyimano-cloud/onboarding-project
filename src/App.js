@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+
 import './App.css';
+import BottomPointers from './components/bottom.pointers';
+import Header from './components/Header';
+import HorizontalStepper from './components/horizontal.steper';
+import Titles from './components/Titles';
+import Form from './components/Form';
+import { useSelector } from 'react-redux';
+
 
 function App() {
+  useSelector(state => state);  //to define state to be able understood in app
+
+  const span = document.querySelectorAll(".stepper span");
+  span.forEach(el => {
+    el.classList.add("circle");
+
+  })
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="Main" className='main rotate'>
+        <Header />
+
+        <HorizontalStepper />
+        <Titles />
+
+        <Form />
+
+      </div>
+      <BottomPointers />
     </div>
+
+
   );
+
+
 }
 
 export default App;
